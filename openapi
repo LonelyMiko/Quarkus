@@ -1,0 +1,101 @@
+---
+openapi: 3.0.3
+info:
+  title: code-with-quarkus API
+  version: 1.0.0-SNAPSHOT
+paths:
+  /cedacri/test:
+    get:
+      tags:
+      - Test
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /hello:
+    get:
+      tags:
+      - Greeting Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /movies:
+    get:
+      tags:
+      - Movie Resource
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+      - Movie Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Movie'
+      responses:
+        "200":
+          description: OK
+  /movies/size:
+    get:
+      tags:
+      - Movie Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                format: int32
+                type: integer
+  /movies/{id}:
+    delete:
+      tags:
+      - Movie Resource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /movies/{id}/{title}:
+    put:
+      tags:
+      - Movie Resource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - name: title
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    Movie:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          type: string
