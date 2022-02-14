@@ -1,4 +1,4 @@
-package it.cedacri;
+package it.cedacri.model;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 

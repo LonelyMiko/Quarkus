@@ -1,5 +1,6 @@
-package it.cedacri;
+package it.cedacri.resources;
 
+import it.cedacri.model.Movie;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;

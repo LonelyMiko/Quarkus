@@ -1,4 +1,4 @@
-package it.cedacri;
+package it.cedacri.resources;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -42,6 +42,33 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.TEXT_PLAIN)
     public String helloTo(String name){
+        return "Hello " + name + "!";
+    }
+
+    @Operation(
+            operationId = "helloToQuery",
+            summary = "Say Hello",
+            description = "Say Hello to query param"
+    )
+    @APIResponse(
+            responseCode = "200",
+            description = "Operation completed",
+            content = @Content(mediaType = MediaType.TEXT_PLAIN)
+    )
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.TEXT_PLAIN)
+    public String helloToQuery(
+            @QueryParam("name") String name){
+        return "Hello " + name + "!";
+    }
+
+    @GET
+    @Path("{name}")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.TEXT_PLAIN)
+    public String helloToPath(
+            @PathParam("name") String name){
         return "Hello " + name + "!";
     }
 }

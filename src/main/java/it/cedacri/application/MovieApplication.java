@@ -1,4 +1,4 @@
-package it.cedacri;
+package it.cedacri.application;
 
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
